@@ -10,9 +10,8 @@ using System.Threading.Tasks;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class UserController : ControllerBase
+
+    public class UserController : BaseApiController
     {
         private readonly DataContext _context;
         public UserController(DataContext context)
@@ -37,7 +36,7 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<AppUser>> GetEmail(int id)
         {
-            return await _context.Users.FindAsync(id);
+            return await _context.Users.FindAsync (id);
 
         }
     }
